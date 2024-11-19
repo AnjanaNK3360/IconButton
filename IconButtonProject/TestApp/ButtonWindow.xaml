@@ -1,0 +1,99 @@
+﻿<Window x:Class="IconButtonTestApp.ButtonWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IconButtonTestApp"
+        xmlns:MyNamespace="clr-namespace:HitachiHighTech.LS.GUI;assembly=HitachiHighTech.LS.GUI"
+        mc:Ignorable="d"
+        Title="ButtonWindow" Height="500" Width="800" WindowState="Maximized" Background="#FFC98DC9">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Panel to Display IconButton -->
+        <StackPanel Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <MyNamespace:IconButton Width="200" Height="150"
+                      IconGeometry="{Binding IconGeometry}"
+                      Text="{Binding Text}"
+                      ButtonBackground="{Binding ButtonBackground}"
+                      Foreground="{Binding Foreground}"
+                      IconFill="{Binding IconFill}"
+                      IconStroke="{Binding IconStroke}"
+                      StrokeThickness="{Binding StrokeThickness}"
+                      CornerRadius="{Binding CornerRadius}"
+                      FontSize="{Binding FontSize}"
+                      IconAlignment="{Binding IconAlignment}"
+                      ControlCommand="{Binding ButtonCommand}"
+                                   
+                            />
+        </StackPanel>
+
+        <!-- Property Panel for Testing -->
+        <StackPanel Grid.Column="1" Margin="10">
+            <!-- TextBox for Icon Geometry -->
+            <TextBlock Text="Icon Geometry" FontWeight="Bold"/>
+            <TextBox Text="{Binding IconGeometry, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+            <!-- TextBox for Button Text -->
+            <TextBlock Text="Button Text" FontWeight="Bold" Margin="0,10,0,0"/>
+            <TextBox Text="{Binding Text, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+            <!-- ComboBox for Background Color -->
+            <TextBlock Text="Background Color" FontWeight="Bold" Margin="0,10,0,0"/>
+            <ComboBox Text="{Binding ButtonBackground, Mode=TwoWay }">
+                <ComboBoxItem Content="LightGray" />
+                <ComboBoxItem Content="LightBlue" />
+                <ComboBoxItem Content="DarkGray" />
+            </ComboBox>
+
+            <!-- ComboBox for Foreground Color -->
+            <TextBlock Text="Foreground Color" FontWeight="Bold" Margin="0,10,0,0"/>
+            <ComboBox Text="{Binding Foreground, Mode=TwoWay}">
+                <ComboBoxItem Content="Black" />
+                <ComboBoxItem Content="White" />
+                <ComboBoxItem Content="DarkBlue" />
+            </ComboBox>
+
+            <!-- ComboBox for Icon Fill Color -->
+            <TextBlock Text="Icon Fill Color" FontWeight="Bold" Margin="0,10,0,0"/>
+            <ComboBox Text="{Binding IconFill, Mode=TwoWay}">
+                <ComboBoxItem Content="Black" />
+                <ComboBoxItem Content="Red" />
+                <ComboBoxItem Content="Green" />
+            </ComboBox>
+
+            <!-- ComboBox for Icon Stroke Color -->
+            <TextBlock Text="Icon Stroke Color" FontWeight="Bold" Margin="0,10,0,0"/>
+            <ComboBox Text="{Binding IconStroke, Mode=TwoWay}">
+                <ComboBoxItem Content="Black" />
+                <ComboBoxItem Content="Red" />
+                <ComboBoxItem Content="Green" />
+            </ComboBox>
+
+            <!-- Slider for Corner Radius -->
+            <TextBlock Text="Corner Radius" FontWeight="Bold" Margin="0,10,0,0"/>
+            <Slider Minimum="0" Maximum="30" Value="{Binding Radius, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            
+
+            <!-- Slider for Font Size -->
+            <TextBlock Text="Font Size" FontWeight="Bold" Margin="0,10,0,0"/>
+            <!--<Slider Minimum="10" Maximum="40" Value="{Binding FontSize, Mode=TwoWay}" />-->
+            <TextBox x:Name="fontSizeTextBox" Width="100" HorizontalAlignment="Left"
+                    Text="{Binding FontSize, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+            <!-- ComboBox for Icon Alignment -->
+            <TextBlock Text="Icon Alignment" FontWeight="Bold" Margin="0,10,0,0"/>
+            <ComboBox Text="{Binding IconAlignment, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" >
+                <ComboBoxItem Content="IconOnTop" />
+                <ComboBoxItem Content="IconOnLeft" />
+            </ComboBox>
+
+            <!-- Slider for Stroke Thickness -->
+            <TextBlock Text="Stroke Thickness" FontWeight="Bold" Margin="0,10,0,0"/>
+            <Slider Minimum="0" Maximum="5" Value="{Binding StrokeThickness, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" />
+        </StackPanel>
+    </Grid>
+</Window>
